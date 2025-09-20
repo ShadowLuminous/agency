@@ -374,11 +374,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         emailjs.sendForm("service_l3h81iv", "template_ao4oshm", "#contactform", "7usAjgNHKRtYCZsbX")
             .then(function(response) {
-                alert("Success!"); // you can replace with popup
-                form.reset();
+                showPopup("Success! Your message has been sent.", "success"); // ✅ use popup
+            form.reset();
             }, function(error) {
                 console.error("EmailJS error:", error);
-                alert("Oops! Something went wrong.");
+            showPopup("Oops! Something went wrong. Please try again.", "error"); // ✅ use popup
             })
             .finally(() => {
                 submitBtn.disabled = false;
@@ -386,6 +386,22 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     });
 });
+</script>
+
+<script>
+function showPopup(message, type) {
+    const popup = document.createElement("div");
+    popup.className = `popup-message ${type}`;
+    popup.innerText = message;
+    document.body.appendChild(popup);
+
+    // Trigger animation
+    setTimeout(() => popup.classList.add("show"), 10);
+    setTimeout(() => {
+        popup.classList.remove("show");
+        setTimeout(() => popup.remove(), 500);
+    }, 4000); // auto-hide after 4 seconds
+}
 </script>
 
 <!-- 3️⃣ Popup styles -->
