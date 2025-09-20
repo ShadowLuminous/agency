@@ -35,12 +35,12 @@
         <!-- Preloader -->
         <div class="preloader-wrap" data-centerLine="Loading">
             <div id="text-container">
-                <div class="word">Brewing some cool things</div>
+                <div class="word">Welcome to...</div>
             </div>
                 
             <div class="loadbar"></div>
             <div class="percentage-wrapper"><div class="percentage" id="precent"></div></div>
-            <div class="percentage-intro">Please wait, content is loading</div>
+            <!-- <div class="percentage-intro">Please wait, content is loading</div> -->
         </div>
         <!--/Preloader -->     
         
@@ -325,63 +325,22 @@
                                         
                                             <form name="contactform" id="contactform" action="https://formspree.io/f/mblanbgo" method="POST">
   <div class="name-box">        
-    <input name="name" type="text" id="name" placeholder="Your Name">
-    <label class="input_label"></label>
+    <input name="name" type="text" id="name" placeholder="Your Name" required>
   </div>                                                        
 
   <div class="email-box">
-    <input name="email" type="email" id="email" placeholder="Your Email">
-    <label class="input_label"></label>
+    <input name="email" type="email" id="email" placeholder="Your Email" required>
   </div>                            
 
   <div class="message-box">
-    <textarea name="message" id="message" placeholder="Tell Us About Your Project"></textarea>
-    <label class="input_label slow"></label>
+    <textarea name="message" id="message" placeholder="Tell Us About Your Project" required></textarea>
   </div>
 
-  <div class="verify-box">                                        
-    <ul class="verify-sum">
-      <li>1</li>
-      <li>+</li>
-      <li>3</li>
-      <li>=</li>
-    </ul>
-    <input name="verify" type="text" id="verify" size="4" placeholder="?" />
-    <p class="required"><span>*</span> Captcha Validation</p>
-  </div>
-
-  <div class="button-box has-animation" data-delay="100">             
-    <div class="webone-button-wrap parallax-wrap hide-ball">
-      <div class="webone-button parallax-element">
-        <div class="button-border rounded">
-          <input type="submit" class="send_message" id="submit" value="Send Mail" />
-        </div>
-      </div>
-    </div> 
+  <div class="button-box">
+    <input type="submit" value="Send Mail">
   </div>
 </form>
 
-<script>
-document.getElementById('contactform').addEventListener('submit', function(e) {
-  e.preventDefault(); // prevent default submit
-  let name = document.getElementById('name').value.trim();
-  let email = document.getElementById('email').value.trim();
-  let message = document.getElementById('message').value.trim();
-  let verify = document.getElementById('verify').value.trim();
-
-  // Simple validation
-  if (!name) { alert('Please enter your name'); return; }
-  if (!email) { alert('Please enter your email'); return; }
-  // basic email format check
-  let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/i;
-  if (!emailPattern.test(email)) { alert('Please enter a valid email'); return; }
-  if (!message) { alert('Please enter your message'); return; }
-  if (verify !== '4') { alert('Captcha is incorrect. Please type 4'); return; }
-
-  // submit the form if all validation passes
-  this.submit();
-});
-</script>
        
                                                                     
                                         </div>
