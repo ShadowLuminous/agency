@@ -1,0 +1,16 @@
+{
+    "name": "Web One Digital Agency",
+    "short_name": "Web One",
+    "description": "Award-winning web design agency specializing in professional web development, SEO services, branding, and digital marketing.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffba00",
+    "icons": [
+        {
+            "src": "favicon2.ico",
+            "sizes": "any",
+            "type": "image/x-icon"
+        }
+    ]
+}
