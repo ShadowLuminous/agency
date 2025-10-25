@@ -2325,7 +2325,37 @@ Function First Load
 		
 		$('.classic-menu .flexnav li a').on('click', function() {
 			$('.classic-menu .flexnav li a').removeClass('active');
-			$(this).addClass('active');		
+			$(this).addClass('active');
+			
+			// Close mobile menu when navigation link is clicked
+			if ($('#menu-burger').hasClass('open')) {
+				$('#menu-burger, .webone-nav-wrapper').removeClass('open');
+				
+				// Animate menu close
+				gsap.to('.webone-nav-wrapper', {duration: 0.3, opacity:0, delay:0.6, ease:Power2.easeInOut});
+				
+				//Fade Out Navigation Lists						
+				gsap.to($(".menu-timeline .before-span"), {duration: 0.5, y:-200, opacity:1, delay:0, stagger:0.05, ease:Power2.easeIn});
+				gsap.to($(".webone-nav-wrapper ul ul li"), {duration: 0.5, y:-120, opacity:0, delay:0, stagger:0.03, ease:Power2.easeIn});
+				
+				if (!$('#page-content').hasClass("light-content")) {	
+					setTimeout( function(){
+						$('#magic-cursor').removeClass('light-content');							
+					} , 500 );
+				}
+				if ($('.webone-header').hasClass("invert-header")) {
+					setTimeout( function(){
+						$('#header-container').removeClass('light-content-header');
+					} , 500 );
+				} else {
+					setTimeout( function(){
+						$('#header-container').removeClass('dark-content-header');
+					} , 500 );
+				}
+				setTimeout( function(){
+					$('.webone-header').removeClass('over-sidebar').removeClass('over-white-section');
+				} , 500 );
+			}
 		})	
 		
 		$('.wpcf7-form-control-wrap').each( function() {			
